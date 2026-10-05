@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="A personal digital love story." />
+  <title>Our Little Love Story ❤️</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="top"></div>
+
+  <!-- =========================================================
+       CONFIG / EASY EDITING
+       Most personal content can be changed in script.js.
+       Add your photos/music inside the assets/ folder.
+       ========================================================= -->
+
+  <div class="ambient-bg" aria-hidden="true">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+  </div>
+  <div id="floating-hearts" class="floating-hearts" aria-hidden="true"></div>
+  <div id="stars" class="stars" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="Back to beginning">♡ Our Story</a>
+    <nav class="nav">
+      <a href="#letter">Letter</a>
+      <a href="#gallery">Photos</a>
+      <a href="#timeline">Memories</a>
+      <a href="#reasons">Reasons</a>
+    </nav>
+    <button id="themeToggle" class="icon-btn" type="button" aria-label="Toggle night mode" title="Night mode">☾</button>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero section" id="hero">
+      <div class="hero-copy reveal">
+        <span class="eyebrow">A little corner of the internet, made for us</span>
+        <h1>Our Little<br /><span>Love Story</span> ❤️</h1>
+        <p class="hero-subtitle">Two hearts, one beautiful story.</p>
+
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#letter">Open Our Story 💕</a>
+          <button class="btn btn-ghost" id="surpriseHero" type="button">Surprise Me 💝</button>
+        </div>
+
+        <div class="mini-counter">
+          <span class="pulse-dot"></span>
+          <span>Together and still choosing each other.</span>
+        </div>
+      </div>
+
+      <div class="couple-frame reveal">
+        <div class="photo-card photo-left">
+          <!-- REPLACE later: put your photo as assets/me.jpg (or .png) and update the src -->
+          <img src="assets/me.svg" alt="My photo" onerror="this.src=placeholderSVG('Your Photo')" />
+          <span>Me ♡</span>
+        </div>
+        <div class="heart-between">♥</div>
+        <div class="photo-card photo-right">
+          <!-- REPLACE later: put her photo as assets/her.jpg (or .png) and update the src -->
+          <img src="assets/her.svg" alt="Girlfriend's photo" onerror="this.src=placeholderSVG('Her Photo')" />
+          <span>My Love ♡</span>
+        </div>
+        <div class="frame-glow"></div>
+      </div>
+    </section>
+
+    <!-- LOVE COUNTER -->
+    <section class="section counter-section">
+      <div class="section-heading reveal">
+        <span class="eyebrow">Every second matters</span>
+        <h2>Our Time Together</h2>
+      </div>
+      <div class="counter-card reveal">
+        <div class="counter-item"><strong id="days">0</strong><span>Days</span></div>
+        <div class="counter-item"><strong id="hours">0</strong><span>Hours</span></div>
+        <div class="counter-item"><strong id="minutes">0</strong><span>Minutes</span></div>
+        <div class="counter-item"><strong id="seconds">0</strong><span>Seconds</span></div>
+      </div>
+      <p class="counter-caption">...and counting, because I'm not planning on stopping. ❤️</p>
+    </section>
+
+    <!-- LOVE LETTER -->
+    <section class="section" id="letter">
+      <div class="section-heading reveal">
+        <span class="eyebrow">From my heart to yours</span>
+        <h2>A Letter For You 💌</h2>
+      </div>
+
+      <article class="letter-paper reveal">
+        <div class="paper-flower flower-1">✿</div>
+        <div class="paper-flower flower-2">❀</div>
+        <div class="letter-date" id="letterDate"></div>
+        <h3>My Dearest <span id="letterName">Christineeeeeeee</span>,</h3>
+        <div id="letterText" class="letter-text" aria-live="polite"></div>
+        <button id="readMore" class="text-btn" type="button">Read More ❤️</button>
+        <div class="signature">Forever yours,<br /><strong>Your Boy ♡</strong></div>
+      </article>
+    </section>
+
+    <!-- GALLERY -->
+    <section class="section" id="gallery">
+      <div class="section-heading reveal">
+        <span class="eyebrow">Little pieces of us</span>
+        <h2>Our Photos 📸</h2>
+        <p>Example photos are ready. Later, drop your own images in <code>assets/</code> and update the paths in <code>script.js</code>.</p>
+      </div>
+
+      <div id="galleryGrid" class="gallery-grid"></div>
+    </section>
+
+    <!-- LIGHTBOX -->
+    <div id="lightbox" class="lightbox" aria-hidden="true">
+      <button class="lightbox-close" id="lightboxClose" type="button" aria-label="Close photo">×</button>
+      <button class="lightbox-nav prev" id="lightboxPrev" type="button" aria-label="Previous photo">‹</button>
+      <figure class="lightbox-content">
+        <img id="lightboxImage" src="" alt="" />
+        <figcaption id="lightboxCaption"></figcaption>
+      </figure>
+      <button class="lightbox-nav next" id="lightboxNext" type="button" aria-label="Next photo">›</button>
+    </div>
+
+    <!-- TIMELINE -->
+    <section class="section" id="timeline">
+      <div class="section-heading reveal">
+        <span class="eyebrow">The chapters we keep</span>
+        <h2>Our Memories 🌸</h2>
+        <p>Tap a chapter to open it.</p>
+      </div>
+      <div id="timelineList" class="timeline"></div>
+    </section>
+
+    <!-- LOVE NOTE -->
+    <section class="section note-section">
+      <div class="note-box reveal">
+        <span class="eyebrow">A tiny reminder</span>
+        <h2>Give Me a Love Note 💌</h2>
+        <p id="loveNote" class="love-note">Press the button whenever you need a little extra sweetness.</p>
+        <button id="loveNoteBtn" class="btn btn-primary" type="button">Give Me a Love Note 💌</button>
+      </div>
+    </section>
+
+    <!-- REASONS -->
+    <section class="section" id="reasons">
+      <div class="section-heading reveal">
+        <span class="eyebrow">I could keep going forever</span>
+        <h2>Reasons I Love You 🥰</h2>
+      </div>
+      <div id="reasonsGrid" class="reasons-grid"></div>
+      <div class="center">
+        <button id="moreReasons" class="btn btn-ghost" type="button">Reveal More Reasons ✨</button>
+      </div>
+    </section>
+
+    <!-- LOVE METER -->
+    <section class="section meter-section">
+      <div class="section-heading reveal">
+        <span class="eyebrow">Warning: extremely scientific</span>
+        <h2>Our Love Meter 💗</h2>
+        <p>Keep pressing the heart. Let's see if this thing can handle us.</p>
+      </div>
+      <div class="meter-card reveal">
+        <div class="meter-track">
+          <div id="loveFill" class="meter-fill"></div>
+        </div>
+        <div class="meter-label"><span id="lovePercent">0%</span><span>∞</span></div>
+        <button id="loveHeart" class="big-heart" type="button" aria-label="Increase love meter">♥</button>
+      </div>
+    </section>
+
+    <!-- MUSIC -->
+    <section class="section music-section">
+      <div class="music-card reveal">
+        <div class="vinyl" id="vinyl">♥</div>
+        <div class="music-info">
+          <span class="eyebrow">Our little soundtrack</span>
+          <h2>Play Our Song 🎵</h2>
+          <p id="songName">Add your song in script.js</p>
+          <audio id="music" preload="metadata"></audio>
+          <div class="music-controls">
+            <button id="musicBtn" class="btn btn-primary" type="button">▶ Play</button>
+            <input id="volume" type="range" min="0" max="1" step="0.01" value="0.75" aria-label="Volume" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECRET -->
+    <section class="section secret-section">
+      <div class="secret-card reveal">
+        <span class="eyebrow">You weren't supposed to find this...</span>
+        <h2>There is a secret here 👀</h2>
+        <button id="secretBtn" class="btn btn-dark" type="button">Don't Click This ❤️</button>
+        <div id="secretMessage" class="secret-message" hidden>
+          <div class="secret-heart">♥</div>
+          <p>Plot twist: I love you way more than this website can possibly explain. And yes, I'd choose you again. Every time. ❤️</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SURPRISE -->
+    <section class="section surprise-section">
+      <div class="surprise-card reveal">
+        <span class="eyebrow">One last little surprise</span>
+        <h2>Ready?</h2>
+        <p>Press it. I promise it's worth it. 💝</p>
+        <button id="surpriseBtn" class="btn btn-primary btn-large" type="button">Surprise Me 💝</button>
+      </div>
+    </section>
+
+    <!-- FINAL -->
+    <section class="final-section section" id="final">
+      <div id="confetti" class="confetti" aria-hidden="true"></div>
+      <div class="final-heart">♥</div>
+      <span class="eyebrow">And this is only the beginning...</span>
+      <h2>Forever isn't long enough with you. ❤️</h2>
+      <p>Made by Your Boy for My Beloved Wife</p>
+      <button id="backTop" class="btn btn-ghost" type="button">Back to the Beginning ❤️</button>
+    </section>
+  </main>
+
+  <footer>
+    <span>Made with too much love ♡</span>
+  </footer>
+
+  <script>
+    /* Small fallback used only if a local image has not been added yet. */
+    function placeholderSVG(label) {
+      const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="900" height="1100" viewBox="0 0 900 1100">
+        <defs><linearGradient id="g" x1="0" x2="1"><stop stop-color="#f8d7e6"/><stop offset="1" stop-color="#d8c6f2"/></linearGradient></defs>
+        <rect width="900" height="1100" fill="url(#g)"/>
+        <text x="450" y="500" text-anchor="middle" font-family="Arial" font-size="54" fill="#6e3455">♥</text>
+        <text x="450" y="590" text-anchor="middle" font-family="Arial" font-size="34" fill="#6e3455">${label}</text>
+      </svg>`;
+      return "data:image/svg+xml;charset=UTF-8," + encodeURIComponent(svg);
+    }
+  </script>
+  <script src="script.js"></script>
+</body>
+</html>
